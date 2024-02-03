@@ -1,0 +1,53 @@
+datos= {}
+
+# print(datos[1][nombre])
+numUsuario = 1
+
+def crear(nombre, apellido, cedula):
+    datos[numUsuario] = {
+        "nombre": nombre,
+        "apellido": apellido,
+        "cedula": cedula
+    }
+def editar(id):
+
+    datosEdit= float(input("Que dato deseas editar: \n1. Nombre \n2. Apellido \n3. Cedula\n"))
+    if datosEdit == 1:
+        editNombre = input("Ingrse un nuevo Nombre: ")
+        datos[id]["nombre"] = editNombre
+    elif datosEdit == 2:
+        editApellido = input("Ingrse un nuevo Apellido: ")
+        datos[id]["apellido"] = editApellido
+    elif datosEdit == 3:
+        editCedula = input("Ingrse un nuevo Cedula: ")
+        datos[id]["cedula"] = editCedula
+    else:
+        print("Vuelve a intentarlo")
+        
+def eliminar(id):
+    del datos[id]
+
+while numUsuario > 0:
+    opcion = float(input(f"Ingrese una opción:\n1. CREAR\n2. EDITAR \n3. ELIMINAR\n4. FINALIZAR\n"))
+
+    if  opcion == 1:
+        nombre = input("Ingrese su nombre: ")
+        apellido = input("Ingrese su apellido: ")
+        cedula = float(input("Ingrese su cedula: "))
+        crear(nombre, apellido, cedula)
+        numUsuario += 1
+
+        print(datos)
+    elif opcion == 2:
+        id = float(input("Ingrese la id del usuario: "))
+        editar(id)
+        print(datos)
+    elif opcion == 3:
+        id2 = float(input("Ingrese la id del usuario: "))
+        eliminar(id2)
+        print(datos)
+    elif opcion == 4:
+        break
+    else:
+        print("Valor invalido")
+
